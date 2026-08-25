@@ -10,33 +10,128 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ChatbotRouteImport } from './routes/chatbot'
+import { Route as ProductGeneratorRouteImport } from './routes/product-generator'
+import { Route as ProductsRouteImport } from './routes/products'
+import { Route as ResponsesRouteImport } from './routes/responses'
+import { Route as SettingsRouteImport } from './routes/settings'
+import { Route as SocialRouteImport } from './routes/social'
+import { Route as TasksRouteImport } from './routes/tasks'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ChatbotRoute = ChatbotRouteImport.update({
+  id: '/chatbot',
+  path: '/chatbot',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProductGeneratorRoute = ProductGeneratorRouteImport.update({
+  id: '/product-generator',
+  path: '/product-generator',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProductsRoute = ProductsRouteImport.update({
+  id: '/products',
+  path: '/products',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ResponsesRoute = ResponsesRouteImport.update({
+  id: '/responses',
+  path: '/responses',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SettingsRoute = SettingsRouteImport.update({
+  id: '/settings',
+  path: '/settings',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SocialRoute = SocialRouteImport.update({
+  id: '/social',
+  path: '/social',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TasksRoute = TasksRouteImport.update({
+  id: '/tasks',
+  path: '/tasks',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/chatbot': typeof ChatbotRoute
+  '/product-generator': typeof ProductGeneratorRoute
+  '/products': typeof ProductsRoute
+  '/responses': typeof ResponsesRoute
+  '/settings': typeof SettingsRoute
+  '/social': typeof SocialRoute
+  '/tasks': typeof TasksRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/chatbot': typeof ChatbotRoute
+  '/product-generator': typeof ProductGeneratorRoute
+  '/products': typeof ProductsRoute
+  '/responses': typeof ResponsesRoute
+  '/settings': typeof SettingsRoute
+  '/social': typeof SocialRoute
+  '/tasks': typeof TasksRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/chatbot': typeof ChatbotRoute
+  '/product-generator': typeof ProductGeneratorRoute
+  '/products': typeof ProductsRoute
+  '/responses': typeof ResponsesRoute
+  '/settings': typeof SettingsRoute
+  '/social': typeof SocialRoute
+  '/tasks': typeof TasksRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/chatbot'
+    | '/product-generator'
+    | '/products'
+    | '/responses'
+    | '/settings'
+    | '/social'
+    | '/tasks'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/chatbot'
+    | '/product-generator'
+    | '/products'
+    | '/responses'
+    | '/settings'
+    | '/social'
+    | '/tasks'
+  id:
+    | '__root__'
+    | '/'
+    | '/chatbot'
+    | '/product-generator'
+    | '/products'
+    | '/responses'
+    | '/settings'
+    | '/social'
+    | '/tasks'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ChatbotRoute: typeof ChatbotRoute
+  ProductGeneratorRoute: typeof ProductGeneratorRoute
+  ProductsRoute: typeof ProductsRoute
+  ResponsesRoute: typeof ResponsesRoute
+  SettingsRoute: typeof SettingsRoute
+  SocialRoute: typeof SocialRoute
+  TasksRoute: typeof TasksRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +143,67 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/chatbot': {
+      id: '/chatbot'
+      path: '/chatbot'
+      fullPath: '/chatbot'
+      preLoaderRoute: typeof ChatbotRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/product-generator': {
+      id: '/product-generator'
+      path: '/product-generator'
+      fullPath: '/product-generator'
+      preLoaderRoute: typeof ProductGeneratorRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/products': {
+      id: '/products'
+      path: '/products'
+      fullPath: '/products'
+      preLoaderRoute: typeof ProductsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/responses': {
+      id: '/responses'
+      path: '/responses'
+      fullPath: '/responses'
+      preLoaderRoute: typeof ResponsesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/settings': {
+      id: '/settings'
+      path: '/settings'
+      fullPath: '/settings'
+      preLoaderRoute: typeof SettingsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/social': {
+      id: '/social'
+      path: '/social'
+      fullPath: '/social'
+      preLoaderRoute: typeof SocialRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/tasks': {
+      id: '/tasks'
+      path: '/tasks'
+      fullPath: '/tasks'
+      preLoaderRoute: typeof TasksRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ChatbotRoute: ChatbotRoute,
+  ProductGeneratorRoute: ProductGeneratorRoute,
+  ProductsRoute: ProductsRoute,
+  ResponsesRoute: ResponsesRoute,
+  SettingsRoute: SettingsRoute,
+  SocialRoute: SocialRoute,
+  TasksRoute: TasksRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

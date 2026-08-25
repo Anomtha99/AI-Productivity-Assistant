@@ -62,39 +62,47 @@
 }
 
 :root {
-  --radius: 0.625rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.129 0.042 264.695);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.129 0.042 264.695);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.129 0.042 264.695);
-  --primary: oklch(0.208 0.042 265.755);
-  --primary-foreground: oklch(0.984 0.003 247.858);
-  --secondary: oklch(0.968 0.007 247.896);
-  --secondary-foreground: oklch(0.208 0.042 265.755);
-  --muted: oklch(0.968 0.007 247.896);
-  --muted-foreground: oklch(0.554 0.046 257.417);
-  --accent: oklch(0.968 0.007 247.896);
-  --accent-foreground: oklch(0.208 0.042 265.755);
-  --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: oklch(0.984 0.003 247.858);
-  --border: oklch(0.929 0.013 255.508);
-  --input: oklch(0.929 0.013 255.508);
-  --ring: oklch(0.704 0.04 256.788);
+  --radius: 0.5rem;
+  /* ALG Collections brand palette */
+  --brand-black: oklch(0.18 0 0);
+  --brand-gold: oklch(0.723 0.126 92.2);
+  --brand-gold-soft: oklch(0.84 0.07 92);
+  --brand-cream: oklch(0.968 0.014 85);
+  --brand-beige: oklch(0.902 0.026 82);
+  --brand-blush: oklch(0.812 0.045 47);
+
+  --background: var(--brand-cream);
+  --foreground: var(--brand-black);
+  --card: oklch(0.99 0.006 85);
+  --card-foreground: var(--brand-black);
+  --popover: oklch(0.99 0.006 85);
+  --popover-foreground: var(--brand-black);
+  --primary: var(--brand-black);
+  --primary-foreground: var(--brand-cream);
+  --secondary: var(--brand-beige);
+  --secondary-foreground: var(--brand-black);
+  --muted: var(--brand-beige);
+  --muted-foreground: oklch(0.48 0.015 70);
+  --accent: var(--brand-gold);
+  --accent-foreground: var(--brand-black);
+  --destructive: oklch(0.55 0.16 25);
+  --destructive-foreground: oklch(0.98 0 0);
+  --border: oklch(0.88 0.024 82);
+  --input: oklch(0.88 0.024 82);
+  --ring: var(--brand-gold);
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
   --chart-3: oklch(0.398 0.07 227.392);
   --chart-4: oklch(0.828 0.189 84.429);
   --chart-5: oklch(0.769 0.188 70.08);
-  --sidebar: oklch(0.984 0.003 247.858);
-  --sidebar-foreground: oklch(0.129 0.042 264.695);
-  --sidebar-primary: oklch(0.208 0.042 265.755);
-  --sidebar-primary-foreground: oklch(0.984 0.003 247.858);
-  --sidebar-accent: oklch(0.968 0.007 247.896);
-  --sidebar-accent-foreground: oklch(0.208 0.042 265.755);
-  --sidebar-border: oklch(0.929 0.013 255.508);
-  --sidebar-ring: oklch(0.704 0.04 256.788);
+  --sidebar: oklch(0.16 0 0);
+  --sidebar-foreground: oklch(0.93 0.012 85);
+  --sidebar-primary: var(--brand-gold);
+  --sidebar-primary-foreground: oklch(0.16 0 0);
+  --sidebar-accent: oklch(0.24 0.01 80);
+  --sidebar-accent-foreground: var(--brand-gold);
+  --sidebar-border: oklch(0.3 0.012 80);
+  --sidebar-ring: var(--brand-gold);
 }
 
 .dark {
@@ -132,6 +140,16 @@
   --sidebar-ring: oklch(0.551 0.027 264.364);
 }
 
+@theme inline {
+  --color-gold: var(--brand-gold);
+  --color-gold-soft: var(--brand-gold-soft);
+  --color-cream: var(--brand-cream);
+  --color-beige: var(--brand-beige);
+  --color-blush: var(--brand-blush);
+  --font-display: "Cormorant Garamond", Georgia, serif;
+  --font-sans: "Jost", ui-sans-serif, system-ui, sans-serif;
+}
+
 @layer base {
   * {
     border-color: var(--color-border);
@@ -140,5 +158,37 @@
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
+    font-family: var(--font-sans);
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display);
+    letter-spacing: 0.01em;
   }
 }
+
+@utility brand-title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+@utility gold-rule {
+  background-image: linear-gradient(
+    90deg,
+    transparent,
+    var(--brand-gold) 20%,
+    var(--brand-gold) 80%,
+    transparent
+  );
+  height: 1px;
+}
+
+@utility card-elegant {
+  background-color: var(--card);
+  border: 1px solid var(--border);
+  box-shadow: 0 1px 2px oklch(0.18 0 0 / 4%);
+}
+
