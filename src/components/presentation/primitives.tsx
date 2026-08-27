@@ -117,8 +117,8 @@ export function FlowStack({
         >
           <div
             className={cn(
-              "s-body w-full rounded-[0.9cqw] px-[1.6cqw] text-center font-medium",
-              dense ? "py-[0.7cqw]" : "py-[1.2cqw]",
+              "w-full rounded-[0.9cqw] px-[1.6cqw] text-center font-medium",
+              dense ? "py-[0.5cqw] text-[1.5cqw]" : "s-body py-[1.2cqw]",
               i === steps.length - 1
                 ? "bg-gold text-foreground"
                 : tone === "dark"
