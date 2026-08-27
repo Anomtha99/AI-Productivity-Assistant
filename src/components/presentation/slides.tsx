@@ -292,7 +292,10 @@ function ResponsesSlide() {
           </p>
         </div>
         <div className="grid min-h-0 grid-rows-[auto_minmax(0,1fr)] gap-[1.4cqw]">
-          <FlowStack dense steps={["Customer message", "AI response", "Human review", "Send"]} />
+          <FlowStack
+            direction="row"
+            steps={["Customer message", "AI response", "Human review", "Send"]}
+          />
           <AppShot
             className="min-h-0"
             src="/shots/responses.png"
@@ -426,8 +429,8 @@ function ChatbotSlide() {
         </div>
         <div className="grid min-h-0 grid-rows-[auto_minmax(0,1fr)] gap-[1.4cqw]">
           <FlowStack
-            dense
-            steps={["Customer question", "ALG AI Chatbot", "Business information", "Helpful response"]}
+            direction="row"
+            steps={["Customer question", "AI chatbot", "Business info", "Helpful response"]}
           />
           <AppShot className="min-h-0" src="/shots/chatbot.png" caption="Live app — AI Chatbot" />
         </div>

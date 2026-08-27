@@ -100,11 +100,46 @@ export function FlowStack({
   steps,
   tone = "light",
   dense = false,
+  direction = "col",
 }: {
   steps: string[];
   tone?: Tone;
   dense?: boolean;
+  direction?: "col" | "row";
 }) {
+  const row = direction === "row";
+  const box = (s: string, last: boolean) => (
+    <div
+      className={cn(
+        "rounded-[0.9cqw] text-center font-medium",
+        row ? "flex-1 px-[0.8cqw] py-[0.7cqw] text-[1.35cqw]" : "w-full px-[1.6cqw]",
+        !row && (dense ? "py-[0.5cqw] text-[1.5cqw]" : "s-body py-[1.2cqw]"),
+        last
+          ? "bg-gold text-foreground"
+          : tone === "dark"
+            ? "border border-gold/30 bg-cream/5"
+            : "border border-gold/35 bg-beige/60",
+      )}
+    >
+      {s}
+    </div>
+  );
+
+  if (row) {
+    return (
+      <div className="flex w-full items-stretch gap-[0.6cqw]">
+        {steps.map((s, i) => (
+          <div key={s} className="flex flex-1 items-center gap-[0.6cqw]">
+            {box(s, i === steps.length - 1)}
+            {i < steps.length - 1 ? (
+              <span className="shrink-0 text-[1.3cqw] leading-none text-gold">&rarr;</span>
+            ) : null}
+          </div>
+        ))}
+      </div>
+    );
+  }
+
   return (
     <div className={cn("flex flex-col items-center", dense ? "gap-[0.4cqw]" : "gap-[0.9cqw]")}>
       {steps.map((s, i) => (
@@ -115,20 +150,12 @@ export function FlowStack({
             dense ? "gap-[0.4cqw]" : "gap-[0.9cqw]",
           )}
         >
-          <div
-            className={cn(
-              "w-full rounded-[0.9cqw] px-[1.6cqw] text-center font-medium",
-              dense ? "py-[0.5cqw] text-[1.5cqw]" : "s-body py-[1.2cqw]",
-              i === steps.length - 1
-                ? "bg-gold text-foreground"
-                : tone === "dark"
-                  ? "border border-gold/30 bg-cream/5"
-                  : "border border-gold/35 bg-beige/60",
-            )}
-          >
-            {s}
-          </div>
-          {i < steps.length - 1 ? <span className="s-body leading-none text-gold">&darr;</span> : null}
+          {box(s, i === steps.length - 1)}
+          {i < steps.length - 1 ? (
+            <span className={cn("leading-none text-gold", dense ? "text-[1.3cqw]" : "s-body")}>
+              &darr;
+            </span>
+          ) : null}
         </div>
       ))}
     </div>
