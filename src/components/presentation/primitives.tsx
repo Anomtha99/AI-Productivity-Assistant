@@ -153,13 +153,13 @@ export function AppShot({
 }) {
   return (
     <figure className={cn("flex min-h-0 flex-col", className)}>
-      <div className="min-h-0 flex-1 overflow-hidden rounded-[1cqw] border border-gold/40 bg-card shadow-[0_1.2cqw_3cqw_rgba(17,17,17,0.18)]">
+      <div className="flex min-h-0 flex-1 flex-col overflow-hidden rounded-[1cqw] border border-gold/40 bg-card shadow-[0_1.2cqw_3cqw_rgba(17,17,17,0.18)]">
         <div className="flex items-center gap-[0.5cqw] border-b border-gold/25 bg-beige/70 px-[1cqw] py-[0.7cqw]">
           <span className="block h-[0.7cqw] w-[0.7cqw] rounded-full bg-foreground/25" />
           <span className="block h-[0.7cqw] w-[0.7cqw] rounded-full bg-foreground/25" />
           <span className="block h-[0.7cqw] w-[0.7cqw] rounded-full bg-foreground/25" />
         </div>
-        <img src={src} alt={caption} className="h-full w-full object-cover object-top" />
+        <img src={src} alt={caption} className="min-h-0 w-full flex-1 object-cover object-top" />
       </div>
       <figcaption className="s-chrome mt-[0.9cqw] uppercase tracking-[0.18em] text-muted-foreground">
         {caption}
