@@ -99,6 +99,7 @@ function PresentationPage() {
                 Back to dashboard
               </Link>
             </Button>
+            <ExportPdfButton />
             <Button onClick={present}>
               <Play className="h-4 w-4" />
               Start presentation
