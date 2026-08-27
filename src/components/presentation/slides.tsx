@@ -225,7 +225,7 @@ function ProductGeneratorSlide() {
       <SlideHeader kicker="Slide 06" title="AI Product Generator" />
       <SlideBody className="grid grid-cols-[0.95fr_1.05fr] gap-[3cqw]">
         <div className="flex min-h-0 flex-col justify-between">
-          <p className="s-body-lg leading-snug text-foreground/85">
+          <p className="s-body leading-snug text-foreground/85">
             Enter product information once — generate multiple pieces of marketing content.
           </p>
           <div className="mt-[1.4cqw] grid grid-cols-[auto_1fr] items-center gap-x-[1.6cqw] gap-y-[0.6cqw]">
@@ -236,9 +236,9 @@ function ProductGeneratorSlide() {
           </div>
           <div className="mt-[1.4cqw] grid grid-cols-2 gap-[0.7cqw]">
             {OUTPUTS.map((o) => (
-              <Panel key={o} className="flex items-center gap-[1cqw] px-[1.2cqw] py-[0.8cqw]">
-                <Sparkles className={ICON} />
-                <span className="s-body">{o}</span>
+              <Panel key={o} className="flex items-center gap-[0.9cqw] px-[1.2cqw] py-[0.7cqw]">
+                <Sparkles className="h-[1.8cqw] w-[1.8cqw] shrink-0 text-gold" />
+                <span className="whitespace-nowrap text-[1.45cqw]">{o}</span>
               </Panel>
             ))}
           </div>
