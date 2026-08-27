@@ -7,7 +7,9 @@ import {
   Megaphone,
   ListChecks,
   Bot,
+  Presentation,
   Settings,
+
 } from "lucide-react";
 
 import {
