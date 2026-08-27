@@ -18,7 +18,7 @@ export function SlideFrame({
   return (
     <div
       className={cn(
-        "relative flex h-full w-full flex-col overflow-hidden",
+        "relative flex h-full w-full flex-col overflow-hidden p-[5cqw]",
         tone === "dark" ? "bg-foreground text-cream" : "bg-cream text-foreground",
         className,
       )}
