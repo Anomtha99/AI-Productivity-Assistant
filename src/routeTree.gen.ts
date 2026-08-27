@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ChatbotRouteImport } from './routes/chatbot'
+import { Route as PresentationRouteImport } from './routes/presentation'
 import { Route as ProductGeneratorRouteImport } from './routes/product-generator'
 import { Route as ProductsRouteImport } from './routes/products'
 import { Route as ResponsesRouteImport } from './routes/responses'
@@ -26,6 +27,11 @@ const IndexRoute = IndexRouteImport.update({
 const ChatbotRoute = ChatbotRouteImport.update({
   id: '/chatbot',
   path: '/chatbot',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PresentationRoute = PresentationRouteImport.update({
+  id: '/presentation',
+  path: '/presentation',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ProductGeneratorRoute = ProductGeneratorRouteImport.update({
@@ -62,6 +68,7 @@ const TasksRoute = TasksRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/chatbot': typeof ChatbotRoute
+  '/presentation': typeof PresentationRoute
   '/product-generator': typeof ProductGeneratorRoute
   '/products': typeof ProductsRoute
   '/responses': typeof ResponsesRoute
@@ -72,6 +79,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/chatbot': typeof ChatbotRoute
+  '/presentation': typeof PresentationRoute
   '/product-generator': typeof ProductGeneratorRoute
   '/products': typeof ProductsRoute
   '/responses': typeof ResponsesRoute
@@ -83,6 +91,7 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/chatbot': typeof ChatbotRoute
+  '/presentation': typeof PresentationRoute
   '/product-generator': typeof ProductGeneratorRoute
   '/products': typeof ProductsRoute
   '/responses': typeof ResponsesRoute
@@ -95,6 +104,7 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/chatbot'
+    | '/presentation'
     | '/product-generator'
     | '/products'
     | '/responses'
@@ -105,6 +115,7 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/chatbot'
+    | '/presentation'
     | '/product-generator'
     | '/products'
     | '/responses'
@@ -115,6 +126,7 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/chatbot'
+    | '/presentation'
     | '/product-generator'
     | '/products'
     | '/responses'
@@ -126,6 +138,7 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   ChatbotRoute: typeof ChatbotRoute
+  PresentationRoute: typeof PresentationRoute
   ProductGeneratorRoute: typeof ProductGeneratorRoute
   ProductsRoute: typeof ProductsRoute
   ResponsesRoute: typeof ResponsesRoute
@@ -148,6 +161,13 @@ declare module '@tanstack/react-router' {
       path: '/chatbot'
       fullPath: '/chatbot'
       preLoaderRoute: typeof ChatbotRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/presentation': {
+      id: '/presentation'
+      path: '/presentation'
+      fullPath: '/presentation'
+      preLoaderRoute: typeof PresentationRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/product-generator': {
@@ -198,6 +218,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   ChatbotRoute: ChatbotRoute,
+  PresentationRoute: PresentationRoute,
   ProductGeneratorRoute: ProductGeneratorRoute,
   ProductsRoute: ProductsRoute,
   ResponsesRoute: ResponsesRoute,

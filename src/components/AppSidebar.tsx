@@ -7,7 +7,9 @@ import {
   Megaphone,
   ListChecks,
   Bot,
+  Presentation,
   Settings,
+
 } from "lucide-react";
 
 import {
@@ -32,7 +34,9 @@ const items = [
   { title: "Social Media Generator", url: "/social", icon: Megaphone },
   { title: "Task Planner", url: "/tasks", icon: ListChecks },
   { title: "AI Chatbot", url: "/chatbot", icon: Bot },
+  { title: "Presentation", url: "/presentation", icon: Presentation },
   { title: "Settings", url: "/settings", icon: Settings },
+
 ] as const;
 
 export function AppSidebar() {

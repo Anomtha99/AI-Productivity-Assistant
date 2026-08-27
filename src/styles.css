@@ -192,3 +192,34 @@
   box-shadow: 0 1px 2px oklch(0.18 0 0 / 4%);
 }
 
+
+/* ---------------- Presentation deck ---------------- */
+.slide-stage {
+  container-type: inline-size;
+  aspect-ratio: 16 / 9;
+  width: 100%;
+  overflow: hidden;
+}
+
+.s-hero { font-size: 7.6cqw; letter-spacing: 0.01em; }
+.s-title { font-size: 5cqw; }
+.s-num { font-size: 3.4cqw; }
+.s-subtitle { font-size: 2.5cqw; line-height: 1.18; }
+.s-body-lg { font-size: 2.1cqw; }
+.s-body { font-size: 1.7cqw; }
+.s-kicker {
+  font-size: 1.15cqw;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+.s-chrome { font-size: 1.05cqw; }
+
+@keyframes slide-in {
+  from { opacity: 0; transform: translateY(1.2rem) scale(0.995); }
+  to { opacity: 1; transform: none; }
+}
+.slide-enter { animation: slide-in 420ms cubic-bezier(0.22, 1, 0.36, 1) both; }
+@media (prefers-reduced-motion: reduce) {
+  .slide-enter { animation: none; }
+}
