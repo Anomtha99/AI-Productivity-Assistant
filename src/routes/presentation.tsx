@@ -3,6 +3,7 @@ import { ChevronLeft, ChevronRight, LayoutDashboard, Maximize2, Play, X } from "
 import { useCallback, useEffect, useRef, useState } from "react";
 
 import { PageHeader } from "@/components/PageHeader";
+import { ExportPdfButton } from "@/components/presentation/ExportPdfButton";
 import { SLIDES } from "@/components/presentation/slides";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
