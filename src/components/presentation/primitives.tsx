@@ -96,14 +96,29 @@ export function Pill({ children, tone = "light" }: { children: ReactNode; tone?:
 }
 
 /** Vertical arrow-connected flow. */
-export function FlowStack({ steps, tone = "light" }: { steps: string[]; tone?: Tone }) {
+export function FlowStack({
+  steps,
+  tone = "light",
+  dense = false,
+}: {
+  steps: string[];
+  tone?: Tone;
+  dense?: boolean;
+}) {
   return (
-    <div className="flex flex-col items-center gap-[0.9cqw]">
+    <div className={cn("flex flex-col items-center", dense ? "gap-[0.4cqw]" : "gap-[0.9cqw]")}>
       {steps.map((s, i) => (
-        <div key={s} className="flex w-full flex-col items-center gap-[0.9cqw]">
+        <div
+          key={s}
+          className={cn(
+            "flex w-full flex-col items-center",
+            dense ? "gap-[0.4cqw]" : "gap-[0.9cqw]",
+          )}
+        >
           <div
             className={cn(
-              "s-body w-full rounded-[0.9cqw] px-[1.6cqw] py-[1.2cqw] text-center font-medium",
+              "s-body w-full rounded-[0.9cqw] px-[1.6cqw] text-center font-medium",
+              dense ? "py-[0.7cqw]" : "py-[1.2cqw]",
               i === steps.length - 1
                 ? "bg-gold text-foreground"
                 : tone === "dark"

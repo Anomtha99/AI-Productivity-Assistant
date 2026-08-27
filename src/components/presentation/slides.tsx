@@ -228,21 +228,21 @@ function ProductGeneratorSlide() {
           <p className="s-body-lg leading-snug text-foreground/85">
             Enter product information once — generate multiple pieces of marketing content.
           </p>
-          <div className="mt-[1.6cqw] grid grid-cols-[auto_1fr] items-center gap-x-[1.6cqw] gap-y-[0.8cqw]">
+          <div className="mt-[1.4cqw] grid grid-cols-[auto_1fr] items-center gap-x-[1.6cqw] gap-y-[0.6cqw]">
             <Pill>Input</Pill>
             <span className="s-body">Product details</span>
             <Pill>AI</Pill>
             <span className="s-body text-muted-foreground">Structured prompt</span>
           </div>
-          <div className="mt-[1.6cqw] grid grid-cols-2 gap-[0.8cqw]">
+          <div className="mt-[1.4cqw] grid grid-cols-2 gap-[0.7cqw]">
             {OUTPUTS.map((o) => (
-              <Panel key={o} className="flex items-center gap-[1cqw] py-[1.1cqw]">
+              <Panel key={o} className="flex items-center gap-[1cqw] px-[1.2cqw] py-[0.8cqw]">
                 <Sparkles className={ICON} />
                 <span className="s-body">{o}</span>
               </Panel>
             ))}
           </div>
-          <div className="mt-[1.8cqw] flex gap-[1cqw]">
+          <div className="mt-[1.4cqw] flex gap-[1cqw]">
             {[
               { icon: Pencil, label: "Edit" },
               { icon: Copy, label: "Copy" },
@@ -250,7 +250,7 @@ function ProductGeneratorSlide() {
             ].map(({ icon: Icon, label }) => (
               <span
                 key={label}
-                className="s-body inline-flex items-center gap-[0.8cqw] rounded-full bg-foreground px-[1.8cqw] py-[0.9cqw] text-cream"
+                className="s-body inline-flex items-center gap-[0.8cqw] rounded-full bg-foreground px-[1.6cqw] py-[0.7cqw] text-cream"
               >
                 <Icon className="h-[1.8cqw] w-[1.8cqw] text-gold" />
                 {label}
@@ -291,9 +291,13 @@ function ResponsesSlide() {
             The AI must not invent prices, sizes, colours, stock or delivery information.
           </p>
         </div>
-        <div className="grid min-h-0 grid-rows-[auto_1fr] gap-[1.6cqw]">
-          <FlowStack steps={["Customer message", "AI response", "Human review", "Send"]} />
-          <AppShot src="/shots/responses.png" caption="Live app — Customer Responses" />
+        <div className="grid min-h-0 grid-rows-[auto_minmax(0,1fr)] gap-[1.4cqw]">
+          <FlowStack dense steps={["Customer message", "AI response", "Human review", "Send"]} />
+          <AppShot
+            className="min-h-0"
+            src="/shots/responses.png"
+            caption="Live app — Customer Responses"
+          />
         </div>
       </SlideBody>
     </SlideFrame>
@@ -420,11 +424,12 @@ function ChatbotSlide() {
             The chatbot answers only from approved business information.
           </p>
         </div>
-        <div className="grid min-h-0 grid-rows-[auto_1fr] gap-[1.6cqw]">
+        <div className="grid min-h-0 grid-rows-[auto_minmax(0,1fr)] gap-[1.4cqw]">
           <FlowStack
+            dense
             steps={["Customer question", "ALG AI Chatbot", "Business information", "Helpful response"]}
           />
-          <AppShot src="/shots/chatbot.png" caption="Live app — AI Chatbot" />
+          <AppShot className="min-h-0" src="/shots/chatbot.png" caption="Live app — AI Chatbot" />
         </div>
       </SlideBody>
     </SlideFrame>
@@ -556,7 +561,9 @@ function FutureSlide() {
     <SlideFrame tone="dark">
       <SlideHeader kicker="Slide 14" title="Future Improvements" tone="dark" />
       <SlideBody className="flex flex-col justify-between">
-        <Pill tone="dark">Future development opportunities — not yet built</Pill>
+        <div>
+          <Pill tone="dark">Future development opportunities — not yet built</Pill>
+        </div>
         <div className="mt-[2cqw] grid grid-cols-3 gap-[1.4cqw]">
           {[
             "Online customer ordering",
@@ -594,7 +601,9 @@ function ConclusionSlide() {
           aria-hidden
           className="h-[9cqw] w-[9cqw] rounded-full object-cover ring-1 ring-gold/60"
         />
-        <h2 className="brand-title s-title mt-[2cqw]">ALG Collections AI Business Assistant</h2>
+        <h2 className="brand-title mt-[2cqw] text-[3.8cqw] leading-[1.1]">
+          ALG Collections AI Business Assistant
+        </h2>
         <p className="s-subtitle mt-[1.6cqw] italic text-gold">
           “AI should make business simpler — not more complicated.”
         </p>
